@@ -1,9 +1,6 @@
 from fastapi import status
 import pytest
 
-# TESTS UNDER THIS MODULE ARE INTER-DEPENDENT, 
-# DO-NOT EXECUTE THEM INDEPENDENTLY.
-
 @pytest.mark.parametrize("filename",['a','b','c','d','e'])
 def test_increase_count_in_stats(upload_file,filename,get_stats):
     """
