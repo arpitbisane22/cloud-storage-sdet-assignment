@@ -12,7 +12,7 @@ from pathlib import Path
 
 def run_tests(test_type, verbose=False, coverage=False):
     """Run the specified test suite."""
-    cmd = ["pytest", "-v" if verbose else "-q"]
+    cmd = ["python", "-m", "pytest", "-v" if verbose else "-q"]
     
     if coverage:
         cmd.extend([
@@ -34,7 +34,7 @@ def run_tests(test_type, verbose=False, coverage=False):
         return False
     
     print(f"Running {test_type} tests...")
-    result = subprocess.run(cmd)
+    result = subprocess.run(cmd, shell=True)
     return result.returncode == 0
 
 def main():
